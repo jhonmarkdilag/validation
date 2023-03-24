@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Mikrotik Router and Wireless</title>
+</head>
+<style >
+	.hornav ul {
+	display: inline;
+    margin-left: 20px;
+    list-style-type: none;
+    
+}
+li{
+	margin-right: 50px;
+   float: right;
+
+    
+} 
+.hornav2 {
+  list-style-type: none;
+  
+  margin-left: auto;
+  padding: 1px;
+  overflow: hidden;
+  background-color: skyblue;
+  top: 15px;
+  width: 100%;
+
+}
+.register-user {
+	margin-left: 130px;
+	}
+	.border {
+	width: 500px;
+	border: 1px solid black;
+	padding: 20PX;
+	background:  white;
+	border-radius: 15px;
+}
+p {
+	margin-right: 250px;
+	padding-bottom: 50px;
+
+}
+#button {
+
+	float: center;
+	background: skyblue;
+	padding: 10px 25px;
+	color: black;
+	border-radius: 5px;
+	margin-right: 10px;
+
+}
+#button:hover{
+	opacity: .7;
+</style>
+<body>
+	<body >
+		
+		
+		<div class="hornav">
+         <img src="mikrotik logo.png" width="250px">&nbsp
+			<ul class="list">
+
+             
+              <li>Account</li> 
+             <li>Training</li> 
+            <li>Support</li>    
+			<li>Software</li> 
+            <li>Hardware</li> 
+            <li>Jobs</li>
+			<li>Buy</li> 
+            <li>About</li> 
+			<li>Home </li>
+			</ul>
+		</div>
+		
+		
+	<div class="hornav2">
+		
+         <h3 class="register-user">REGISTER USER</h3>
+	</div >
+	<center><h3 class="register"> Register &nbsp &nbsp &nbsp Log IN </h3>
+		
+		 <p class="button1">Register type
+<input type="radio" >
+ <label for="natural person">natural person</label>
+ <input type="radio">
+ <label for="legal person">legal person</label>
+        </p>
+
+<form>
+	<div>
+	<label>name</label>
+		<input type="text" id="name" name="name"  placeholder="required" height="50" />
+		<span id="name-error" style="color: red;"></span>
+	</div><br><br><br>
+	    <label>surname</label>
+		<input type="surname" id="surname" name="surname" placeholder="required"/>
+		<span class="error-message" id="surname-error" style="color: red;"></span><br><br><br>
+	
+	<label>Email</label>
+		<input type="text" id="email" name="email" placeholder="required"/>
+		<span  id="email-error" style="color: red;"></span>
+	</div><br><br><br>
+	
+		<div class="border"><p>Residental address</p>
+		<label>Country</label>
+		<input type="text" id="country" name="country" placeholder="required"/>
+		<span  id="country-error" style="color: red;"></span>
+	<br><br><br>
+	
+		<label>Postcode</label>
+		<input type="text" id="postcode" name="postcode" placeholder="required"/>
+		<span  id="postcode-error" style="color: red;"></span>
+	<br><br><br>
+	
+		<label>City</label>
+		<input type="text" id="city" name="city" placeholder="required"/>
+		<span  id="city-error" style="color: red;"></span>
+	<br><br><br>
+	
+		<label>Address Line</label>
+		<input type="text" id="addressline" name="addressline" placeholder="required"/>
+		<span  id="addressline-error" style="color: red;"></span>
+	</div><br><br><br>
+	<div >
+		<label>Phone Number</label>
+		<input type="text" id="phonenumber" name="phonenumber" placeholder="required"/>
+		<span id="phonenumber-error" style="color: red;"></span>
+	</div><br><br><br>
+	<div >
+		<label>Website URL</label>
+		<input type="text" id="website" name="website" placeholder="required"/>
+		<span  id="website-error" style="color: red;"></span>
+	</div><br><br><br>
+	<div >
+		<label>Vat Number</label>
+		<input type="text" id="vatnumber" name="vatnumber" placeholder="required"/>
+		<span  id="vatnumber" style="color: red;"></span>
+	</div><br><br><br>
+
+	
+	
+	<button type="submit" id="button" > Register</button>
+	</div>
+
+
+
+
+</form>
+<script>
+	const nameInput = document.getElementById("name");
+	const surnameInput = document.getElementById("surname");
+	const emailInput = document.getElementById("email");
+	const countryInput = document.getElementById("country");
+	const cityInput = document.getElementById("city");
+	const postcodeInput = document.getElementById("postcode");
+	const addresslineInput = document.getElementById("addressline");
+	const phonenumberInput = document.getElementById("phonenumber");
+	const websiteInput = document.getElementById("website");
+	const vatnumbervatnumberInput = document.getElementById("vatnumbervatnumber");
+	
+	
+	const nameError = document.getElementById("name-error");
+	const surnameError = document.getElementById("surname-error");
+	const emailError = document.getElementById("email-error");
+	const countryError = document.getElementById("country-error");
+	const cityError = document.getElementById("city-error");
+	const postcodeError = document.getElementById("postcode-error");
+	const addresslineError = document.getElementById("addressline-error");
+	const phonenumberError = document.getElementById("phonenumber-error");
+	const websiteError = document.getElementById("website");
+	const vatnumbervatnumberError = document.getElementById("vatnumbervatnumber");
+			
+
+	nameInput.addEventListener("input", function(){
+		if (nameInput.value.length=='') {
+			nameError.textContent = "please enter your name";
+			nameError.style.display ="block";
+		}
+		else if (nameInput.value.length <8) {
+			nameError.textContent = "username must be at least 8 character";
+			nameError.style.display ="block";
+
+		}
+		
+		else{
+			nameError.style.display ="none";
+		}
+
+	});
+
+	surnameInput.addEventListener("input", function(){
+		if (surnameInput.value.length=='') {
+			surnameError.textContent = "please enter your surname";
+			surnameError.style.display ="block";
+		}
+		
+		else{
+			surnameError.style.display ="none";
+		}
+
+	});
+
+        	emailInput.addEventListener("input", function(){
+		if (emailInput.value.length=='') {
+			emailError.textContent = "please enter your email address";
+			emailError.style.display ="block";
+		}
+		else if (emailInput.value.length <10) { 
+			emailError.textContent = "Email address does not have the correct format (missng @gmail)";
+			emailError.style.display ="block";
+
+		}	
+		else{
+			emailError.style.display ="none";
+		}
+
+
+	});
+countryInput.addEventListener("input", function(){
+		if (countryInput.value.length=='') {
+			countryError.textContent = "please enter your Country";
+			countryError.style.display ="block";
+		}
+		
+		else{
+			countryError.style.display ="none";
+		}
+
+	
+
+
+
+	});
+
+	
+	cityInput.addEventListener("input", function(){
+		if (cityInput.value.length=='') {
+			cityError.textContent = "please enter your your city";
+			cityError.style.display ="block";
+		}
+		
+		
+		else{
+			cityError.style.display ="none";
+		}
+
+
+	});
+
+		
+		postcodeInput.addEventListener("input", function(){
+		if (postcodeInput.value.length=='') {
+			postcodeError.textContent = "please enter your 4 digit postcode";
+			postcodeError.style.display ="block";
+		}
+		else if (postcodeInput.value.length <13) {
+			postcodeError.textContent = "must be 4 digits long";
+			postcodeError.style.display ="block";
+
+		}	
+		else{
+			postcodeError.style.display ="none";
+		}
+
+
+	});
+
+	addresslineInput.addEventListener("input", function(){
+		if (addresslineInput.value.length=='') {
+			addresslineError.textContent = "please enter your your addressline";
+			addresslineError.style.display ="block";
+		}
+		
+		
+		else{
+			addresslineError.style.display ="none";
+		}
+
+
+	});
+		phonenumberInput.addEventListener("input", function(){
+		if (phonenumberInput.value.length=='') {
+			phonenumberError.textContent = "please enter your mobile number";
+			phonenumberError.style.display ="block";
+		}
+		else if (phonenumberInput.value.length <11) {
+			phonenumberError.textContent = "invalid phone number, should be a minimum of 11 digits";
+			phonenumberError.style.display ="block";
+
+		}	
+		else{
+			phonenumberError.style.display ="none";
+		}
+
+
+	});
+		
+websiteInput.addEventListener("input", function(){
+		if (websiteInput.value.length=='') {
+			websiteError.textContent = "please enter your your addressline";
+			websiteError.style.display ="block";
+		}
+		
+		
+		else{
+			websiteError.style.display ="none";
+		}
+
+	});
+		vatnumberInput.addEventListener("input", function(){
+		if (vatnumberInput.value.length=='') {
+			vatnumberError.textContent = "please enter your 4 digit postcode";
+			vatnumberError.style.display ="block";
+		}
+		else if (vatnumberInput.value.length <13) {
+			vatnumberError.textContent = "must be 4 digits long";
+			vatnumberError.style.display ="block";
+
+		}	
+		else{
+			vatnumberError.style.display ="none";
+		}
+
+
+	});
+
+		
+
+
+	
+
+
+</script>
+
+
+
+</body>
+</html>
